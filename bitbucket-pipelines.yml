@@ -1,0 +1,12 @@
+image: atlassian/pipelines-awscli
+
+pipelines:
+  custom:
+    Calculator-staging:  
+      - step:
+          script:
+            - apk update
+            - apk add zip
+            - mkdir zipped
+            - zip -r ./zipped/calculator_staging.zip ./* -x *.git* --exclude=*.DS_Store*
+            - aws s3 --region "ap-south-1" sync ./zipped/ s3://fundsindiauistagingprod/

@@ -1,0 +1,9 @@
+version: 0.0
+os: linux
+files: 
+  - source: /
+    destination: /usr/local/codedeploy/simpleinterest
+hooks:
+  AfterInstall:
+    - location: ./transfer.sh
+      runas: root
