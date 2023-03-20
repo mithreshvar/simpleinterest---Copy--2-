@@ -346,12 +346,10 @@ export default function Home() {
 
           <RelatedCalculators
             contents={[
-              ["FD Calculator", "/fd"],
-              ["SWP Calculator", ""],
-              ["SWP Calculator", ""],
-              ["SWP Calculator", ""],
-              ["SWP Calculator", ""],
-              ["SWP Calculator", ""],
+              ["Compound Interest Calculator", "/compoundInterest"],
+              ["Simple Interest Calculator", "/simpleInterest"],
+              ["SSY Calculator", "/ssy"],
+              ["Gratuity Calculator", "/gratuity"],
             ]}
           />
         </div>

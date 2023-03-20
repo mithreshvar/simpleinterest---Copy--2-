@@ -381,12 +381,10 @@ export default function Home() {
                 {/* Related Calculators */}
                 <RelatedCalculators
                     contents={[
-                        ["Gratuity Calculator", "/gratuity"],
-                        ["SWP Calculator", ""],
-                        ["SWP Calculator", ""],
-                        ["SWP Calculator", ""],
-                        ["SWP Calculator", ""],
-                        ["SWP Calculator", ""],
+                        ["Compound Interest Calculator", "/compoundInterest"],
+                        ["Simple Interest Calculator", "/simpleInterest"],
+                        ["FD Calculator", "/fd"],
+                        ["Mutual Funds Calculator", "/cagr"],//same page
                     ]}
                 />
             </main>

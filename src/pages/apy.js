@@ -328,12 +328,10 @@ export default function Home() {
         {/* Related Calculators */}
         <RelatedCalculators
           contents={[
-            ["SSY Calculator", "/ssy"],
-            ["SWP Calculator", ""],
-            ["SWP Calculator", ""],
-            ["SWP Calculator", ""],
-            ["SWP Calculator", ""],
-            ["SWP Calculator", ""],
+            ["EPF Calculator", "/apy"],//same page
+            ["PPF Calculator", "/apy"],//same page
+            ["NPS Calculator", "/apy"],//same page
+            ["Retirement Calculator", "/apy"],//same page
           ]}
         />
       </main>

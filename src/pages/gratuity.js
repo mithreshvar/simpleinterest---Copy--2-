@@ -268,12 +268,10 @@ export default function Home() {
                 {/* Related Calculators */}
                 <RelatedCalculators
                     contents={[
-                        ["CAGR Calculator", "/cagr"],
-                        ["SWP Calculator", ""],
-                        ["SWP Calculator", ""],
-                        ["SWP Calculator", ""],
-                        ["SWP Calculator", ""],
-                        ["SWP Calculator", ""],
+                        ["EPF Calculator", "/gratuity"],//same page
+                        ["PPF Calculator", "/gratuity"],//same page
+                        ["NSC Calculator", "/gratuity"],//same page
+                        ["Retirement Calculator", "/gratuity"],//same page
                     ]}
                 />
             </main>

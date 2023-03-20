@@ -147,7 +147,7 @@ export default function Chart({ points }) {
         responsive: {
             rules: [{
                 condition: {
-                    minWidth: 615
+                    minWidth: 600
                 },
                 chartOptions: {
                     tooltip: {
