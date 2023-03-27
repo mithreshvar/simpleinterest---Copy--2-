@@ -1,0 +1,69 @@
+//Media Query mixin
+$breakpoints: (
+  "phone": 400px,
+  "phone-medium": 420px,
+  "phone-wide": 480px,
+  "phablet": 560px,
+  "phablet-col": 576px,
+  "tablet": 768px,
+  "md-screen": 992px,
+  "desktop-min": 1248px,
+  "desktop-medium": 1366px,
+  "desktop-max": 1536px,
+
+  "tablet-small": 640px,
+  "tablet-mweb": 920px,
+  "tablet-wide": 1024px,
+  "desktop-minimum": 1280px,
+  "desktop-med": 1536px,
+  "desktop-maximum": 1920px,
+  "desktop-4k": 2560px,
+  "desktop-4k-above": 2561px,
+);
+
+@mixin mq($width, $type: min) {
+  @if map_has_key($breakpoints, $width) {
+    $width: map_get($breakpoints, $width);
+  } @else {
+    $width: $width;
+  }
+  @if $type==max {
+    $width: $width - 1px;
+  }
+
+  @media only screen and (#{$type}-width: $width) {
+    @content;
+  }
+}
+
+/* Example usage of Media Query
+    @include mq('tablet-wide') {
+        padding-top: 4rem;
+    } 
+*/
+
+@mixin mqminmax($minWidth, $maxWidth, $actionType) {
+  @if map_has_key($breakpoints, $minWidth) {
+    $minWidth: map_get($breakpoints, $minWidth);
+  } @else {
+    $minWidth: $minWidth;
+  }
+  @if map_has_key($breakpoints, $maxWidth) {
+    $maxWidth: map_get($breakpoints, $maxWidth);
+  } @else {
+    $maxWidth: $maxWidth;
+  }
+  @if $actionType== "maxSubtract" {
+    $maxWidth: $maxWidth - 1px;
+  }
+
+  @media only screen and (min-width: $minWidth) and (max-width: $maxWidth) {
+    @content;
+  }
+}
+
+/* Example usage of Media Query
+    @include mqminmax("tablet-mweb", "tablet-wide") {
+        padding-top: 4rem;
+    } 
+*/

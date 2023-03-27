@@ -12,7 +12,7 @@ export default function UnorderedList({ content }) {
     }
 
     return (
-        <ul >
+        <ul className=" space-y-[10px] " >
             {content.map(addList)}
         </ul>
     );

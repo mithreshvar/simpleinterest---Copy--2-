@@ -13,6 +13,16 @@ export default function RelatedCalculators({ contents }) {
                 />
             );
         }
+        if (index == contents.length - 1) {
+            return (
+                <RelatedCalculatorElement
+                    key={`relatedCalculator${index}`}
+                    name={element[0]}
+                    path={element[1]}
+                    last={true}
+                />
+            );
+        }
         return (
             <RelatedCalculatorElement
                 key={`relatedCalculator${index}`}

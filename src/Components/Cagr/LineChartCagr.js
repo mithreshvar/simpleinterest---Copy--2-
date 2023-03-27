@@ -6,7 +6,7 @@ export default function Chart({ points }) {
 
     const [options, setOptions] = useState({
         chart: {
-            type: 'areaspline',
+            type: 'area',
             styleMode: true,
             backgroundColor: 'transparent',
             height: '220px',
@@ -35,8 +35,8 @@ export default function Chart({ points }) {
 
             gridLineWidth: 1,
 
-            // endOnTick: true,
-            // startOnTick: true,
+            //endOnTick: true,
+            //startOnTick: true,
 
             labels: {
                 style: {
@@ -72,7 +72,10 @@ export default function Chart({ points }) {
                     ]
                 },
             },
-            areaspline: {
+            area: {
+                color: '#00DD6F',
+            },
+            area: {
                 color: '#00DD6F',
             },
 
@@ -171,7 +174,7 @@ export default function Chart({ points }) {
                         //tickInterval: 1,
 
                         tickLength: 0,
-
+                        // tickAmount: 8,
                         gridLineWidth: 1,
 
                         // endOnTick: true,

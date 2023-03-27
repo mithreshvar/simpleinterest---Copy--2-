@@ -4,7 +4,7 @@ export default function ControlBox({ calculate }) {
 
         <div
             className={
-                "flex flex-warp justify-center mt-[30px] [@media(max-width:500px)]:mt-[25px] cursor-pointer "
+                "flex flex-warp justify-center mt-[130px] [@media(max-width:500px)]:mt-[25px] cursor-pointer "
             }
         >{/* Control Box Wrapper */}
 

@@ -4,7 +4,7 @@ export default function CalculatorWrapper({ children }) {
     return (
         <div
             className={
-                "lg:flex max-md:flex-col p-[30px] [@media(max-width:400px)]:p-[20px] xl:w-[75%]  max-lg:space-y-7  border-2 border-white rounded-[30px] shadow-md shadow-[#505C6227] bg-white bg-opacity-40 backdrop-blur-[30px]"
+                "lg:flex max-md:flex-col p-[30px] [@media(max-width:400px)]:px-[15px] [@media(max-width:400px)]:py-[20px] xl:w-[75%]  max-lg:space-y-7 [@media(max-width:500px)]:space-y-[20px]  border-2 border-white rounded-[30px] shadow-md shadow-[#505C6227] bg-white bg-opacity-40 backdrop-blur-[30px]"
             }
         >
             {children[0]}

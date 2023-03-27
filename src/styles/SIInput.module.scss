@@ -1,21 +1,19 @@
 .inputBox input[type="range"] {
     appearance: none;
     background: #DCE8F8;
+    background-image: linear-gradient(#00D382,#00D382); 
     height: 8px;
+    width: 100%;
     border-radius: 10px;
     cursor: pointer;
-    width: 100%;
-    /*margin: 0.5rem;*/
     -webkit-transition: .2s;
     transition: opacity .2s;
-    background-image: linear-gradient(#00D382,#00D382); 
+    outline: none;
     background-size: 1% 100%;
     background-repeat: no-repeat;
 }
 
-
 .inputBox input[type="range"]::-webkit-slider-runnable-track {
-
     border-radius: 10px;
     height: 8px;
 }
@@ -29,6 +27,7 @@
     background-color: #DFFDEE;
     border-radius: 50%;
     border: 2px solid #00D87A;
+    box-shadow: 0px 5px 9px #505C6229;
     cursor: pointer;
 }
 
@@ -50,6 +49,7 @@
     border-radius: 3px;
     background: #DFFDEE;
     border: 2px solid #00D87A;
+    box-shadow: 0px 5px 9px #505C6229;
     border-radius: 50%;
     cursor: pointer;
 }
@@ -61,5 +61,6 @@
     background: #DFFDEE;
     border-radius: 50%;
     border: 2px solid #00D87A;
+    box-shadow: 0px 5px 9px #505C6229;
     cursor: pointer;
 }

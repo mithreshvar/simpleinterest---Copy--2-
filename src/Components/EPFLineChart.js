@@ -17,7 +17,7 @@ export default function Chart({ points }) {
         },
 
         xAxis: {
-            //tickInterval: 2,
+            //tickInterval: 5,
             tickLength: 0,
             labels: {
                 step: 1
@@ -82,53 +82,6 @@ export default function Chart({ points }) {
             enabled: false
         },
 
-        responsive: {
-            rules: [{
-                condition: {
-                    minWidth: 615
-                },
-                chartOptions: {
-                    tooltip: {
-                        backgroundColor: '#FFFFFF',
-                        borderColor: '#FFFFFF',
-                        borderRadius: 20,
-                        style: {
-                            display: 'flex',
-                            color: '#000000',
-                            fontSize: '14px',
-                            zIndex: '90',
-                            position: 'absolute',
-                        },
-                        formatter() {
-                            return `Amount <strong>\u20B9 ${Number(this.y.toFixed(0)).toLocaleString("en-In")}</strong> <br> Year <strong> ${this.x} </strong>`
-                        }
-                    },
-                    xAxis: {
-
-                        allowDecimals: false,
-                        //tickInterval: 2,
-
-                        tickLength: 0,
-
-                        gridLineWidth: 1,
-
-                        // endOnTick: true,
-                        // startOnTick: true,
-
-                        labels: {
-                            style: {
-                                color: "#000000",
-                                fontFamily: 'poppins',
-                                fontSize: '14px',
-                                fontWeight: '400',
-                                opacity: 0.4,
-                            },
-                        },
-
-                    },
-                }
-            }]
-        },
     });
 
     useEffect(() => {

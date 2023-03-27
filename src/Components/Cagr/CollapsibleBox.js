@@ -20,13 +20,13 @@ export default function CollapsibleBox({ heading, headingBold = false, content, 
     let lineStyle = {
         width: 100 + '%',
         height: '0px',
-        border: '0.5px solid #C4C4C4',
+        border: '0.5px solid #D0D0D0',
         opacity: 1,
         marginTop: '0',
         margin: (type == 'faq') ? '20px 0px' : '10px 0',
     }
 
-    let contentStyle = (type === 'faq') ? ' mt-[10px] text-[#464143] text-[14px] [@media(min-width:1920px)]:text-[18px] font-normal pr-[20px]' : ' mt-[10px] text-[#464143] text-[14px] [@media(min-width:1920px)]:text-[18px] font-normal ';
+    let contentStyle = (type === 'faq') ? ' mt-[10px] text-[#464143] text-[14px] [@media(min-width:1920px)]:text-[18px] font-normal pr-[15px]' : ' mt-[10px] text-[#464143] text-[14px] [@media(min-width:1920px)]:text-[18px] font-normal [@media(max-width:1280px)]:pr-[10px] pr-[5px] ';
 
     return (
         <>

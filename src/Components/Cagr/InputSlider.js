@@ -3,7 +3,7 @@ import { useState } from 'react';
 export default function Input({ id, type = '', min = 0, max, step = 1, value, setValue }) {
 
 
-    const [textValue, setTextValue] = useState(((type === 'rupees') ? '\u20B9' : '') + Number(value).toLocaleString("en-In") + ((type === 'percentage') ? '%' : ''));
+    const [textValue, setTextValue] = useState(((type === 'rupees') ? '\u20B9 ' : '') + Number(value).toLocaleString("en-In") + ((type === 'percentage') ? '%' : ''));
     const [raiseMaxError, setRaiseMaxError] = useState(false);
 
 
@@ -13,16 +13,17 @@ export default function Input({ id, type = '', min = 0, max, step = 1, value, se
         // const val = event.target.value;
         // event.currentTarget.style.backgroundSize = ((val - min) * 100) / (max - min) + '% 100%';
         let tempValue = event.target.value;
+        console.log(tempValue);
         setValue(Number(tempValue));
-        setTextValue(((type === 'rupees') ? '\u20B9' : '') + Number(tempValue).toLocaleString("en-In") + ((type === 'percentage') ? '%' : ''));
+        setTextValue(((type === 'rupees') ? '\u20B9 ' : '') + Number(tempValue).toLocaleString("en-In") + ((type === 'percentage') ? '%' : ''));
     }
 
 
     const addSymbol = (event) => {
         setRaiseMaxError(false);
         let tempValue = event.target.value;
-        if (!(String(textValue).charAt(0) == '\u20B9')) {
-            tempValue = ((type === 'rupees') ? '\u20B9' : '') + Number(tempValue).toLocaleString("en-In");
+        if (!(String(textValue).charAt(0) == '\u20B9 ')) {
+            tempValue = ((type === 'rupees') ? '\u20B9 ' : '') + Number(tempValue).toLocaleString("en-In");
         }
         if (!(String(textValue).charAt(-1) == '%')) {
             tempValue += ((type === 'percentage') ? '%' : '');
@@ -43,7 +44,7 @@ export default function Input({ id, type = '', min = 0, max, step = 1, value, se
         else {
             setRaiseMaxError(false);
         }
-        if ((!(isNaN(tempValue)) && tempValue >= 0 && tempValue <= max && tempValue != '.' && tempValue != '0.') || tempValue == '' || tempValue == '0') {
+        if ((!(isNaN(tempValue)) && tempValue >= 0 && tempValue <= max && tempValue != '.' && (tempValue != '0.' || type === 'percentage')) || tempValue == '' || tempValue == '0') {
 
             if (tempValue == "") {
                 tempValue = '0';
@@ -55,7 +56,18 @@ export default function Input({ id, type = '', min = 0, max, step = 1, value, se
                 setTextValue(Number(tempValue));
             }
             else {
-                setTextValue(tempValue);
+                if (tempValue.includes('.')) {
+                    let s = tempValue.split('.');
+                    if (s[1].length >= 2) {
+                        setTextValue(parseFloat(s[0] + '.' + s[1][0] + s[1][1]).toFixed(2));
+                    }
+                    else {
+                        setTextValue(tempValue);
+                    }
+                }
+                else {
+                    setTextValue(tempValue);
+                }
             }
             setValue(Number(tempValue));
         }
@@ -64,7 +76,7 @@ export default function Input({ id, type = '', min = 0, max, step = 1, value, se
 
     return (
         <div className={styles.inputBox}>
-            <div className={' flex justify-between flex-warp items-center'}>
+            <div className={' flex justify-between flex-warp items-center  '}> {/*[@media(max-width:500px)]:h-[54px]*/}
                 <div className=' w-[58%]    '>
                     <input
                         type="range"
@@ -86,12 +98,12 @@ export default function Input({ id, type = '', min = 0, max, step = 1, value, se
                         max={max}
                         onBlur={addSymbol}
                         onFocus={removeSymbol}
-                        className={'h-[40px] w-full text-[#1B1C20] bg-[#D1E3FF] bg-opacity-[0.39] border-2 border-solid border-[#9BB0D3] rounded-[100px] text-center text-[14px] font-semibold [@media(min-width:1920px)]:text-[18px] '}
+                        className={'h-[40px] w-full text-[#1B1C20] bg-[#DCE3EE] border-2 border-solid border-[#C7CFDD] rounded-[100px] text-center text-[14px] font-semibold [@media(min-width:1920px)]:text-[18px] '}
                         onChange={handleTextValue}
                     />
                 </div>
             </div>
-            {(value < min) ? <div className=' text-[#FF7D7D] text-sm font-normal -mt-[8px] -mb-[12px]'>Minimum value is {min.toLocaleString('en-In')}.</div> : (raiseMaxError) ? <div className=' text-[#FF7D7D] text-sm font-normal -mt-[8px] -mb-[12px]'>Maximum value is {max.toLocaleString('en-In')}.</div> : ''}
+            {(value < min) ? <div className=' text-[#FF7D7D] text-sm [@media(max-width:500px)]:text-[10px] font-normal -mt-[8px] -mb-[12px]'>Minimum value is {min.toLocaleString('en-In')}.</div> : (raiseMaxError) ? <div className=' text-[#FF7D7D] text-sm [@media(max-width:500px)]:text-[10px] font-normal -mt-[8px] -mb-[12px]'>Maximum value is {max.toLocaleString('en-In')}.</div> : ''}
         </div>
     )
 }

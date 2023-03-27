@@ -77,7 +77,7 @@ export default function Input({ id, type = '', min = 0, max, step = 1, value, se
                         className={'my-4 accent-[#00D382] bg-transparent flex '}
                     />
                 </div>
-                <div className=' w-[39%] lg:ml-[25px]   '>
+                <div className='  w-[39%] lg:ml-[25px] ml-[10px] min-w-[150px] [@media(max-width:500px)]:min-w-[120px]  text-[#1B1C20] '>
                     <input
                         type="text"
                         value={textValue}
@@ -86,7 +86,7 @@ export default function Input({ id, type = '', min = 0, max, step = 1, value, se
                         max={max}
                         onBlur={(type === '') ? null : addSymbol}
                         onFocus={(type === '') ? null : removeSymbol}
-                        className={'h-[45px] w-full color-[#1B1C20] bg-[#D1E3FF] bg-opacity-[0.39] border-2 border-solid border-[#9BB0D3] rounded-[100px] text-center text-[14px] font-semibold [@media(min-width:1920px)]:text-[18px] '}
+                        className={'h-[40px] w-full text-[#1B1C20] bg-[#DCE3EE] border-2 border-solid border-[#C7CFDD] rounded-[100px] text-center text-[14px] font-semibold [@media(min-width:1920px)]:text-[18px] '}
                         onChange={handleTextValue}
                     />
                 </div>

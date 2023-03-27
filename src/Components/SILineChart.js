@@ -6,7 +6,7 @@ export default function Chart({ points }) {
 
     const [options, setOptions] = useState({
         chart: {
-            type: 'areaspline',
+            type: 'area',
             styleMode: true,
             backgroundColor: 'transparent',
             height: '220px',
@@ -66,7 +66,7 @@ export default function Chart({ points }) {
                     ]
                 }
             },
-            areaspline: {
+            area: {
                 color: '#00DD6F',
             },
 

@@ -1,3 +1,4 @@
+@import "./mixins.scss";
 .inputBox input[type="range"] {
     appearance: none;
     background: #DCE8F8;
@@ -13,6 +14,8 @@
     background-repeat: no-repeat;
 }
 
+$imgCDNPath: "https://cdn.fundsindia.com/prelogin/";
+
 .inputBox input[type="range"]::-webkit-slider-runnable-track {
     border-radius: 10px;
     height: 8px;
@@ -27,6 +30,7 @@
     background-color: #DFFDEE;
     border-radius: 50%;
     border: 2px solid #00D87A;
+    box-shadow: 0px 5px 9px #505C6229;
     cursor: pointer;
 }
 
@@ -48,6 +52,7 @@
     border-radius: 3px;
     background: #DFFDEE;
     border: 2px solid #00D87A;
+    box-shadow: 0px 5px 9px #505C6229;
     border-radius: 50%;
     cursor: pointer;
 }
@@ -59,5 +64,103 @@
     background: #DFFDEE;
     border-radius: 50%;
     border: 2px solid #00D87A;
+    box-shadow: 0px 5px 9px #505C6229;
     cursor: pointer;
+}
+
+.inputBox select  {
+    appearance: none;
+    text-align: center;
+        padding-right: 7px;
+    background-image: url(.././/Components/Cagr/DropDownIcon.svg);
+    background-position-x: calc(100% - 10px);
+    background-position-y: center;
+    background-size: 20px;
+    background-repeat: no-repeat;
+}
+
+.leftBgLine1 {
+    @apply absolute h-full;
+    background-image: url($imgCDNPath + "sip-ins-bg-line-1.svg");
+    width: 40%;
+    background-size: 100%;
+    top: 12%;
+    left: -20%;
+    background-repeat: no-repeat;
+  }
+
+  .main {
+    background-image: url($imgCDNPath + "gray-dot.svg"),
+    url($imgCDNPath + "blue-dot.svg"), url($imgCDNPath + "blue-dot.svg"),
+    url($imgCDNPath + "green-dot.svg"),
+    url($imgCDNPath + "blue-dot.svg"),url($imgCDNPath + "green-dot.svg"),
+    url($imgCDNPath + "gray-dot.svg"),url($imgCDNPath + "gray-dot.svg");
+    background-size: 20px, 23px, 10px, 10px, 11px, 18px, 16px, 20px;
+    background-repeat: no-repeat;
+  }
+
+
+.rightBgLine2 {
+    @apply absolute h-full w-full;
+    height: 27%;
+    width: 30%;
+    background-image: url($imgCDNPath + "privacy-bg-line.svg");
+    background-size: 100%;
+    right: -15%;
+    top: 46%;
+    background-repeat: no-repeat;
+}
+
+@media screen and (max-width: 500px) {
+    .inputBox select  {
+        text-align: center;
+        padding-right: 7px;
+        appearance: none;
+        background-image: url(.././/Components/Cagr/DropDownIcon.svg);
+        background-position-x: calc(100% - 3px);
+        background-position-y: center;
+        background-size: 15px;
+        background-repeat: no-repeat;
+    }
+}
+
+@include mq("phablet-col", "max") {
+    .main {
+        @apply px-[35px];
+    }
+}
+
+@include mq('tablet', 'max') {
+    .leftBgLine1, .rightBgLine2 {
+        @apply hidden
+    }
+
+    .main {
+        background-image: url($imgCDNPath + "gray-dot.svg"),
+        url($imgCDNPath + "blue-dot.svg"), url($imgCDNPath + "blue-dot.svg"),
+        url($imgCDNPath + "green-dot.svg"),
+        url($imgCDNPath + "blue-dot.svg"),url($imgCDNPath + "green-dot.svg"),
+        url($imgCDNPath + "gray-dot.svg"),url($imgCDNPath + "blue-dot.svg");
+        background-size: 20px, 23px, 10px, 10px, 11px, 18px, 16px, 20px;
+        background-position: 98% 6%, 100% 45%, 3% 32%, 3% 13%, 98% 75%, 2% 56%, 3% 71%, 1% 91%;
+    }
+}
+
+@include mqminmax('tablet', 'desktop-minimum', '') {
+    .leftBgLine1 {
+        top: 16%;
+        left: -17%;
+    }
+}
+
+@include mq('tablet', 'min') {
+    .main {
+        background-position: 98% 6%, 100% 36%, 4% 41%, 1% 12%, 98% 75%, 1% 58%, 2% 71%, 1% 91%;
+    }
+}
+
+@include mq('desktop-min', 'min') {
+    .main {
+        background-position: 98% 6%, 100% 36%, 8% 41%, 1% 12%, 98% 75%, 1% 58%, 8% 71%, 1% 91%;
+    }
 }
